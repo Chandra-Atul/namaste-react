@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// React Element
-const Title = ()  => (<h1 className="heading" tabIndex="1"> Namaste React using JSX🚀 </h1>);
 
 
 // React component
@@ -29,13 +27,22 @@ const Title = ()  => (<h1 className="heading" tabIndex="1"> Namaste React using 
 
 
 // component Composition
+
+
 const HeadingComponent = () => (
   <div id="container">
-    {/* this is component composition enjecting another component to another component*/}
-    <Title/>  
+    {/* this is how you put your React element inside your React component ---- {React element}*/}
+    {Title}
     <h1 className="heading">Namaste React functional Component</h1>
   </div>
 );
+
+
+// React Element
+const Title = (
+    <h1 className="heading" tabIndex="1">
+    Namaste React using JSX🚀 </h1>);
+
 
 // both above written are same
 const root = ReactDOM.createRoot(document.getElementById("root"));
