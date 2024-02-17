@@ -2,32 +2,49 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 // React Element
+const Title = ()  => (<h1 className="heading" tabIndex="1"> Namaste React using JSX🚀 </h1>);
 
 
-// React.createElement =>ReactElement-JS Object => htmlElement(render)
+// React component
 
-// const heading  = React.createElement("h1",
-//      {id: "heading"},
-//       "Namaste React🚀"
-// );
+// class based component - OLD
+// Functional Component - NEW
 
-// console.log(heading);
+// A Function that returns a Piece of EJX Code is React funtional Component
 
 
+// const fn1 = () => true;
+
+// const fn2 = () =>{
+//   return true;
+// }
+
+// both fn1 and fn2 are same
 
 
-// JSX --- it is not the part of React both are different
+// React functional Component
+// const HeadingComponent = () =>{
+//   return <h1 id="heading">Namaste React Functional Component</h1>
+// };
 
-// JSX (transpiled before it reaches the JS Engine) - PARCEL - Babel
 
-//JSX => React.createElement => ReactElement-JS OBject => HTML Elemeht(render) 
+// component Composition
+const HeadingComponent = () => (
+  <div id="container">
+    {/* this is component composition enjecting another component to another component*/}
+    <Title/>  
+    <h1 className="heading">Namaste React functional Component</h1>
+  </div>
+);
 
-const jsxHeading  = <h1 className="heading" tabIndex="1"> Namaste React using JSX🚀 </h1>
-// JSX -- it is not html inside js 
-// JSX -- HTML like or XML like syntax
-
-console.log(jsxHeading);
-
+// both above written are same
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(jsxHeading);
+// root.render(HeadingComponent); --- we can not render functional component in this way
+// root.render(heading) 
+// --- this is how we render React Element not React Component
+
+// to render react Component
+
+root.render(<HeadingComponent/>);
+
