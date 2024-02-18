@@ -27,6 +27,8 @@
     padding: 5px;
     width: 200px;
 }
+
+
 .res-card:hover{
     cursor: pointer;
     border: 1px solid black;
