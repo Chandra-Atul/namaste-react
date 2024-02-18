@@ -1,5 +1,5 @@
-import { CDN_LINK } from "./utils/constants";
-import resList from "./utils/mockData";
+import { CDN_LINK } from "../utils/constants";
+import resList from "../utils/mockData";
 
 
 // way to apply style inline
