@@ -26,6 +26,9 @@ const Body = () => {
 
     };
     
+
+    // condition Rendering ---- Render according to condition is know as condition rendering
+  
     if(ListOfRestaurants.length === 0){
       return <Shimmer/>
     }
