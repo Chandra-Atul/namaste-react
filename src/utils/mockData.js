@@ -93,7 +93,7 @@ const resList = [
           "Bakery",
           "Ice Cream"
         ],
-        "avgRating": 4.4,
+        "avgRating": 4.5,
         "parentId": "195515",
         "avgRatingString": "4.4",
         "totalRatingsString": "1K+",
