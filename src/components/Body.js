@@ -1,64 +1,36 @@
 import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
-import { useState } from "react";
-import resList from "../utils/mockData";
+import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
 
     // local State Variable - super powerful variable
-    const [ListOfRestaurants, setListOfRestaurants] = useState(resList);
+    const [ListOfRestaurants, setListOfRestaurants] = useState([]);
 
 
+    useEffect(()=>{
+      fetchData();
+    }, []);
 
-    // let ListOfRestaurants = [];
+
+    const fetchData = async () =>{
+      const data = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5976892&lng=88.46703219999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      );
+
+      const json = await data.json();
+      console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+      setListOfRestaurants(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+      
+
+    };
+    
+    if(ListOfRestaurants.length === 0){
+      return <Shimmer/>
+    }
 
 
-    // Normal Js variable
-    const ListOfRestaurantsJS = [
-        {
-            "info": {
-              "id": "216675",
-              "name": "Burger King",
-              "cloudinaryImageId": "e33e1d3ba7d6b2bb0d45e1001b731fcf",
-              "locality": "Kasba",
-              "areaName": "East Kolkata Township",
-              "costForTwo": "₹350 for two",
-              "cuisines": [
-                "Burgers",
-                "American"
-              ],
-              "avgRating": 4.4,
-            }
-        },{
-            "info": {
-                "id": "216676",
-                "name": "KFC",
-                "cloudinaryImageId": "e33e1d3ba7d6b2bb0d45e1001b731fcf",
-                "locality": "Kasba",
-                "areaName": "East Kolkata Township",
-                "costForTwo": "₹350 for two",
-                "cuisines": [
-                  "Burgers",
-                  "American"
-                ],
-                "avgRating": 3.8,
-            }
-        },
-        {
-            "info": {
-                "id": "216679",
-                "name": "MCD",
-                "cloudinaryImageId": "e33e1d3ba7d6b2bb0d45e1001b731fcf",
-                "locality": "Kasba",
-                "areaName": "East Kolkata Township",
-                "costForTwo": "₹350 for two",
-                "cuisines": [
-                  "Burgers",
-                  "American"
-                ],
-                "avgRating": 4.5,
-        },
-    }];
 
     return (
       <div className="body">

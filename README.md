@@ -21,7 +21,7 @@
 - Different dev and prod bundles
 
 
-- The Type of Export/Import
+The Type of Export/Import
 
 - Default Export/Import
 export default Component;
