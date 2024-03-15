@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const User = (props) => {
-  const [count1] = useState(1);
+  const [count1, setCount1] = useState(1);
   const [count2] = useState(2);
 
   return (
